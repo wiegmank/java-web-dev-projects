@@ -21,7 +21,7 @@ public class AliceSearch {
             System.out.println("That IS in the 1st sentence and is located at index " + index + ". The length of the word is " + length + " characters.");
         } else {
             System.out.println("That word IS NOT in the 1st sentence.");
-        };
+        }
 
         String storyUpdated = story.replace(userWord, "");
         System.out.println(storyUpdated);
