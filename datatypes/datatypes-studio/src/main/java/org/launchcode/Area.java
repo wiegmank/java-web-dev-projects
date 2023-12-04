@@ -5,25 +5,21 @@ import java.util.Scanner;
 public class Area {
 
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
-        String userInput = input.nextLine();
 
+        double radius;
 
-        while (userInput == "") {
-            System.out.println("Enter the radius of the circle: ");
-        };
-
-
-//        Double radius = input.nextDouble();
-//        while (input < 0 || input.equals("")) {
-//        System.out.println("Enter the radius of the circle: ");
-//        radius = input.nextDouble();
-
-        }
-        Double userRadius = 0;
-        Double PI = Math.PI;
-        Double area = Circle.getArea(userRadius);
-
-        System.out.println("The AREA of the circle is " + area + ".");
+        do {
+            System.out.println("Enter a radius (greater than 0): ");
+            while (!input.hasNextDouble()) {
+                System.out.println("That doesn't look like a valid number. Please try again.");
+                input.next();
+            }
+            radius = input.nextDouble();
+        } while (radius<0);
+        double area = Circle.getArea(radius);
+        System.out.println("The area of a circle with radius " + radius + " is " + area + ".");
+        input.close();
     }
 }
