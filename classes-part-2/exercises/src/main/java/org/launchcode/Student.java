@@ -30,20 +30,52 @@ public class Student {
 
 
     //TODO: Uncomment and complete the getGradeLevel method here:
-//    public String getGradeLevel() {
-//        // Determine the grade level of the student based on numberOfCredits
-//    }
+    public String getGradeLevel(int credits) {
+        // Determine the grade level of the student based on numberOfCredits
+        if (credits >= 0 && credits <= 29) {
+            return "Freshman";
+        } else if (credits <= 59) {
+            return "Sophomore";
+        } else if (credits <= 89) {
+            return "Junior";
+        } else {
+            return "Senior";
+        }
+    }
 
     // TODO: Complete the addGrade method.
     public void addGrade(int courseCredits, double grade) {
         // Update the appropriate fields: numberOfCredits, gpa
+        double currentTotal = this.gpa * this.numberOfCredits;
+        this.numberOfCredits += courseCredits;
+        double newGrade = courseCredits * grade;
+        this.gpa = (newGrade + currentTotal) / this.numberOfCredits;
+
+
     }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
     //  than just the class fields.
+    public String toString() {
+        String myOutput = String.format("%s is a %s with %d credits and GPA of %.2f" , this.name, this.getGradeLevel(this.numberOfCredits), this.numberOfCredits, this.gpa);
+        return myOutput;
+//      return name + " (Credits: " + numberOfCredits + ", GPA: " + gpa + ")";
+    }
 
     // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Student objects equal.
+    public boolean equals(Object toBeCompared) {
+        if (toBeCompared == this) {
+            return true;
+        }
+
+        if (toBeCompared == null || toBeCompared.getClass() != getClass()) {
+            return false;
+        }
+
+        Student sampleStudent = (Student) toBeCompared;
+        return sampleStudent.getStudentId() == getStudentId();
+    }
 
     public String getName() {
         return name;
