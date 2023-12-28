@@ -37,7 +37,7 @@ public class Computer {
     }
 
     public void computerInfo(String brand, int screenSize, int storageSize) {
-        System.out.println("*** Computer ***\n" + "Brand : " + this.brand +"\nScreen size : " + this.screenSize + "\nStorage size : " + this.storageSize);
+        System.out.println("*** Computer ***\n" + "Brand : " + this.brand +"\nScreen size : " + this.screenSize + " inches" + "\nStorage size : " + this.storageSize);
     }
 
     public void gamingOrWorking() {

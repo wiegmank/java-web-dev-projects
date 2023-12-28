@@ -11,5 +11,9 @@ public class Program {
         Laptop myLaptop = new Laptop("mac", 13, 256, 75);
         myLaptop.batteryStatus();
 
+        SmartPhone myPhone = new SmartPhone("iphone", 6, 128, 5);
+        myPhone.selfieCounter();
+
+
     }
 }
